@@ -8,14 +8,11 @@
 
 This tutorial is meant as a quick step-by-step guide to get started using the [HN API](https://github.com/HackerNews/API) whilst also teaching some fundamental things about APIs and introducing useful tools for testing APIs. This tutorial is mainly geared towards junior developers.
 
-- What do we want to do
-- What audience this is addressing (level of expertise)
-- what tech stack we'll be using for demonstration purposes
-- Where can we find additional resources (Postman API package, code examples) if any? (Link to public GitHub repo)
-
 ## Hacker News
 - What is the website about?
 - What kind of content does exist? (Comments, Stories etc.)
+
+[Hacker News](https://news.ycombinator.com/) is a social news website focusing on computer science and entrepreneurship. It follows the "anything that gratifies one's intellectual curiosity" slogan. (Source: [Wiki](https://en.wikipedia.org/wiki/Hacker_News))
 
 ## Precourse on what APIs are
 - Disclaimer (You can skip this if you have worked with APIs before)
@@ -60,3 +57,7 @@ https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty
 - explain API parameters (beststories is a an object and we use . notation here to access the objects json property)
 
 ## Integration example (webapp architecture and use-case)
+
+## Outro
+
+I have created this repo and a public Postman Docs site containing everything we went through in case you'd like to use this as a resource for further learning or to build the next Hacker News Reader App.
