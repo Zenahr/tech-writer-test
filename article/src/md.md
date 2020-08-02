@@ -9,10 +9,19 @@
 This tutorial is meant as a quick step-by-step guide to get started using the [HN API](https://github.com/HackerNews/API) whilst also teaching some fundamental things about APIs and introducing useful tools for testing APIs. This tutorial is mainly geared towards junior developers.
 
 ## Hacker News
-- What is the website about?
-- What kind of content does exist? (Comments, Stories etc.)
 
-[Hacker News](https://news.ycombinator.com/) is a social news website focusing on computer science and entrepreneurship. It follows the "anything that gratifies one's intellectual curiosity" slogan. (Source: [Wiki](https://en.wikipedia.org/wiki/Hacker_News))
+[Hacker News](https://news.ycombinator.com/) is a social news website focusing on computer science and entrepreneurship. It follows the "anything that gratifies one's intellectual curiosity" slogan. If you haven't been on Hacker News before, feel free to pause this guide and stop by to get a feel of what we're going to work with. (Source: [Wiki](https://en.wikipedia.org/wiki/Hacker_News))
+
+### Types of Content
+
+Content posted on Hacker News can be put into one of the following categories:
+
+- Stories
+- Jobs
+- Comments
+- Ask Hacker News
+
+We will learn how to get the content using a
 
 ## Precourse on what APIs are
 - Disclaimer (You can skip this if you have worked with APIs before)
@@ -57,6 +66,10 @@ https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty
 - explain API parameters (beststories is a an object and we use . notation here to access the objects json property)
 
 ## Integration example (webapp architecture and use-case)
+
+## Limitations
+
+The current API is limited in its use. It only supports ¼ of standard `CRUD` API functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
 
 ## Outro
 
