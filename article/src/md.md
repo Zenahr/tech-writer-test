@@ -1,5 +1,9 @@
 # Hacker News API Guide
 
+![](./media/1.jpg)
+
+>**Disclaimer** <br> This is an unofficial guide to the HackerNews API. The author is not affiliated with HN in any official function.
+
 ## Getting Started
 
 - What do we want to do
@@ -24,6 +28,8 @@
 `https://hacker-news.firebaseio.com/v0/METHOD_FAMILY.method`
 example:
 `https://hacker-news.firebaseio.com/v0/beststories.json`
+
+>For anyone interested in reading more about the differences between REST and RPC I recommend [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon
 
 
 ### Methods
