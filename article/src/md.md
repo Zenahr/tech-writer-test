@@ -6,6 +6,8 @@
 
 ## Getting Started
 
+This tutorial is meant as a quick step-by-step guide to get started using the [HN API](https://github.com/HackerNews/API) whilst also teaching some fundamental things about APIs and introducing useful tools for testing APIs. This tutorial is mainly geared towards junior developers.
+
 - What do we want to do
 - What audience this is addressing (level of expertise)
 - what tech stack we'll be using for demonstration purposes
@@ -29,7 +31,7 @@
 example:
 `https://hacker-news.firebaseio.com/v0/beststories.json`
 
->For anyone interested in reading more about the differences between REST and RPC I recommend [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon
+>For anyone interested in reading more about the differences between REST and RPC I recommend [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon.
 
 
 ### Methods
