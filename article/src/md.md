@@ -96,6 +96,21 @@ The web browser has hit an API endpoint and represents the structured data (JSON
 
 We made an _HTTP request_ to the _repos_ endpoint of the _GitHub API_ and got a bunch of JSON objects back as a _response_. JSON is one common way of transportation via the web. JSON stands for `Javascript Object Notation`. I won't go through the details of it here The only thing we need to be aware of is that the data we get back is structured data and the container used to structure the data is JSON. Read more about JSON and its intricacies [here](https://www.json.org/json-en.html). It's worth it if you're planning on working in web-development regardless of wether you specialise in front-end or back-end development.
 
+### Choosing an HTTP Client
+
+We need a meaningful way of representing data received from API endpoints. This is where HTTP clients come into play. Remember, APIs use the HTTP protocol for transportation.
+
+If you'd like to very quickly test something out you could always use [curl](https://curl.haxx.se/).
+
+open your terminal(Linux) or command-line(Windows) and enter the following line of code:
+
+`https://api.github.com/users/Zenahr/repos`
+
+Yes, it's the same HTTP request we sent before, but this time we used our terminal/command-line to receive the payload. Payload is the actual content of the HTTP response without accounting for metadata and other things that go along with an HTTP response. In other words: If everything is working fine you usually only care and work with the payload of HTTP responses.
+
+We will use Postman as our HTTP client because it has been specifically built for developing, testing and documenting APIs.
+
+Feel free to [download Postman](https://www.postman.com/) and make yourself comfortable with it. It's free and open-source.
 
 ## Exploring the API
 
