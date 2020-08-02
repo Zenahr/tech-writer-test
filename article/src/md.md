@@ -29,6 +29,74 @@ We will learn how to get the content using a
 - Explain in quick sentences what APIs generally are
 - Now a quick intro to Web APIs and the Restful paradigm
 
+>**NOTE** <br> If you know what APIs are and have worked with APIs in the web context, you can skip this part.
+
+API stands for `Application Programming Interface`. Just by digesting the words of the acronym we can derive, that:
+- Something communicates with something else(`Interface`)
+- The context lies in the domain of software development(`application`)
+- We write code in order to use APIs(`Programming`)
+
+An API is an abstraction layer between some part of software and some other part of software, simplifying interaction between the two.
+
+### Minimal example of an API
+
+One common type of API are libraries. You use libraries to abstract complexity away from complicated things, for example `dates`, or handling `User I/O` or more high-level things such as Data Science ([pandas](https://pandas.pydata.org/)), utility libraries([libavutil](https://ffmpeg.org/libavutil.html)) or even a library for [speech recognition](https://pypi.org/project/SpeechRecognition/).
+
+```python
+
+#import library
+import speech_recognition as sr
+
+# Initialize recognizer class (for recognizing the speech)
+r = sr.Recognizer()
+
+# Reading Audio file as source
+# listening the audio file and store in audio_text variable
+
+with sr.AudioFile('I-dont-know.wav') as source:
+    
+    audio_text = r.listen(source)
+    
+# recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
+    try:
+        
+        # using google speech recognition
+        text = r.recognize_google(audio_text)
+        print('Converting audio transcripts into text ...')
+        print(text)
+     
+    except:
+         print('Sorry.. run again...')
+
+```
+
+The example above is written in Python but the principle of abstraction applies to any library. So, libraries are one kind of API, what else is out there? Glad you asked...
+
+### Web based APIs
+
+![](./media/2.png)
+[Source](https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f)
+
+Since the world wide web has started to conquer the world since its modest beginning in March 12th, 1989 when Tim [Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee) submitted his memorandum titled "Information Management: A Proposal" to the management at CERN.
+
+Web APIs are responsible for transferring data from the server to the client. Several protocols have been developed for that kind of communication today known as [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (Hypertext Transfer Protocol).
+
+### A Short Experiment
+
+Visit following URL with your web browser:
+
+`https://api.github.com/users/Zenahr/repos`
+
+If you're using Firefox as your web browser, it should look something like this:
+
+![](./media/3.png)
+The web browser has hit an API endpoint and represents the structured data (JSON) for us.
+
+#### What just happened?
+
+We made an _HTTP request_ to the _repos_ endpoint of the _GitHub API_ and got a bunch of JSON objects back as a _response_. JSON is one common way of transportation via the web. JSON stands for `Javascript Object Notation`. I won't go through the details of it here The only thing we need to be aware of is that the data we get back is structured data and the container used to structure the data is JSON. Read more about JSON and its intricacies [here](https://www.json.org/json-en.html). It's worth it if you're planning on working in web-development regardless of wether you specialise in front-end or back-end development.
+
+
 ## Exploring the API
 
 - Intro to the API (open/closed?) (not restful)
@@ -69,7 +137,7 @@ https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty
 
 ## Limitations
 
-The current API is limited in its use. It only supports ¼ of standard `CRUD` API functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
+The current API is limited in its functionality. It supports only ¼ of standard `CRUD` API functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
 
 ## Outro
 
