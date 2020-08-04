@@ -108,26 +108,25 @@ open your terminal(Linux) or command-line(Windows) and enter the following line 
 
 Yes, it's the same HTTP request we sent before, but this time we used our terminal/command-line to receive the payload. Payload is the actual content of the HTTP response without accounting for metadata and other things that go along with an HTTP response. In other words: If everything is working fine you usually only care and work with the payload of HTTP responses.
 
-We will use Postman as our HTTP client because it has been specifically built for developing, testing and documenting APIs.
-
-Feel free to [download Postman](https://www.postman.com/) and make yourself comfortable with it. It's free and open-source.
+If you plan on developing, testing and documenting APIs regularly make sure to [check out Postman](https://www.postman.com/). It's free and open-source. We will be using Python and the `requests` library in this tutorial though.
 
 ## Exploring the API
 
-- Intro to the API (open/closed?) (not restful)
-- The API is a collection of HTTP RPC-style methods using following URL building principle:
+The Hacker News API is public. This means it is free to use. Also, you don't need an API key to access it.
+
+The API is a collection of HTTP RPC-style methods using following URL building principle:
 `https://hacker-news.firebaseio.com/v0/METHOD_FAMILY.method`
 example:
 `https://hacker-news.firebaseio.com/v0/beststories.json`
 
->For anyone interested in reading more about the differences between REST and RPC I recommend [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon.
+>For anyone interested in reading more about the differences between REST and RPC paradigms I recommend reading [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon and [this article](https://rapidapi.com/blog/types-of-apis/) by RapidAPI.
 
 
-### Methods
+### The HackerNews API
 - Introductory text explaining where and how I obtained the table
 - Table of endpoints itself
 
-The current API does not follow the Restful paradigm. Everything is an item. There are no semantic endpoints such as `api/stories`,  or `api/jobs` except `api/users`. The only way to only get one type of item is by using the following 
+The current API does not follow the REST paradigm. Everything is an item. There are no semantic endpoints such as `api/stories`,  or `api/jobs` except `api/users`. The only way to only get one type of item is by using the following 
 
 |Method|Description|Endpoint|
 |---|---|---|
@@ -140,13 +139,7 @@ The current API does not follow the Restful paradigm. Everything is an item. The
 |`showstories.json`|Get latest Show Stories|https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty|
 |`jobstories.json`|Get latest Job Stories|https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty|
 |`updates.json`|Get latest items that have been updated (including profiles)|https://hacker-news.firebaseio.com/v0/updates.json?print=pretty|
-
-## Example Scenario
-
-- Explain what we want to do
-- Show results of using 
-https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty
-- explain API parameters (beststories is a an object and we use . notation here to access the objects json property)
+(Feel free to open the links using your browser or `curl` and take a look look at what data you receive)
 
 Let's familiarize ourselves with the API by querying some data.
 
@@ -156,7 +149,7 @@ Imagine writing a mobile App (in Flutter, React Native or whatever you're comfor
 
 We will work with Python because it's easy to prototype in and it features some neat functions right out-of-the-box for data manipulation.
 
->Make sure to have the [requests](https://pypi.org/project/requests/) library installed to follow along. The code will be posted on GitHub.
+>**ATTENTION** <br> Make sure to have the [requests](https://pypi.org/project/requests/) library installed to follow along.
 
 Let's make a simple `GET` request via the requests library to the `besttories.json` method
 
@@ -187,18 +180,6 @@ print(len(response))
 >>> 50
 ```
 
-The complete and abbreviated code for this looks like this:
-
->**NOTE** <br> I have added more descriptive print functions.
-
-```python
-import requests
-url = "https://hacker-news.firebaseio.com/v0/beststories.json"
-response = requests.get(url).json()[:50]
-print("Amount of results:", len(response))
-print("IDs:", response)
-```
-
 We could write another function which would then create direct links to the different posts like so
 
 ```python
@@ -212,9 +193,38 @@ link_list = id_list_to_link_list(response)
 print("Links:", link_list)
 ```
 
+The complete and abbreviated code for this looks like this:
+
+>**NOTE** <br> I have added more descriptive print functions.
+
+```python
+import requests
+
+url = "https://hacker-news.firebaseio.com/v0/beststories.json"
+response = requests.get(url).json()[:50]
+print("Amount of results:", len(response))
+print("IDs:", response)
+
+def id_to_link(id):
+    return "https://news.ycombinator.com/item?id=" + str(id)
+
+def id_list_to_link_list(id_list):
+    return [id_to_link(id) for id in id_list]
+
+link_list = id_list_to_link_list(response)
+print("Links:", link_list)
+
+>>> Amount of results: 50
+>>> IDs: [24009177, 24030969, 24022751, 24042305, 24035203, 24038520, 24032779, 24030654, 24036484, 24006150, 24039887, 24006697, 24005047, 24043427, 24013200, 24010152, 24016938, 24017555, 24024841, 24020899, 24049428, 24047638, 24044409, 24035866, 24011939, 24037853, 24028351, 24027487, 24004573, 24038518, 24042266, 24031885, 24029002, 24038843, 24023979, 24021025, 24030216, 24051907, 24048046, 24031290, 24036712, 24034211, 24026270, 24011505, 24027366, 24037118, 24012587, 24038223, 24007274, 24032136]
+>>> Links: ['https://news.ycombinator.com/item?id=24009177', 'https://news.ycombinator.com/item?id=24030969', 'https://news.ycombinator.com/item?id=24022751', 'https://news.ycombinator.com/item?id=24042305', 'https://news.ycombinator.com/item?id=24035203', 'https://news.ycombinator.com/item?id=24038520', 'https://news.ycombinator.com/item?id=24032779', 'https://news.ycombinator.com/item?id=24030654', 'https://news.ycombinator.com/item?id=24036484', 'https://news.ycombinator.com/item?id=24006150', 'https://news.ycombinator.com/item?id=24039887', 'https://news.ycombinator.com/item?id=24006697', 'https://news.ycombinator.com/item?id=24005047', 'https://news.ycombinator.com/item?id=24043427', 'https://news.ycombinator.com/item?id=24013200', 'https://news.ycombinator.com/item?id=24010152', 'https://news.ycombinator.com/item?id=24016938', 'https://news.ycombinator.com/item?id=24017555', 'https://news.ycombinator.com/item?id=24024841', 'https://news.ycombinator.com/item?id=24020899', 'https://news.ycombinator.com/item?id=24049428', 'https://news.ycombinator.com/item?id=24047638', 'https://news.ycombinator.com/item?id=24044409', 'https://news.ycombinator.com/item?id=24035866', 'https://news.ycombinator.com/item?id=24011939', 'https://news.ycombinator.com/item?id=24037853', 'https://news.ycombinator.com/item?id=24028351', 'https://news.ycombinator.com/item?id=24027487', 'https://news.ycombinator.com/item?id=24004573', 'https://news.ycombinator.com/item?id=24038518', 'https://news.ycombinator.com/item?id=24042266', 'https://news.ycombinator.com/item?id=24031885', 'https://news.ycombinator.com/item?id=24029002', 'https://news.ycombinator.com/item?id=24038843', 'https://news.ycombinator.com/item?id=24023979', 'https://news.ycombinator.com/item?id=24021025', 'https://news.ycombinator.com/item?id=24030216', 'https://news.ycombinator.com/item?id=24051907', 'https://news.ycombinator.com/item?id=24048046', 'https://news.ycombinator.com/item?id=24031290', 'https://news.ycombinator.com/item?id=24036712', 'https://news.ycombinator.com/item?id=24034211', 'https://news.ycombinator.com/item?id=24026270', 'https://news.ycombinator.com/item?id=24011505', 'https://news.ycombinator.com/item?id=24027366', 'https://news.ycombinator.com/item?id=24037118', 'https://news.ycombinator.com/item?id=24012587', 'https://news.ycombinator.com/item?id=24038223', 'https://news.ycombinator.com/item?id=24007274', 'https://news.ycombinator.com/item?id=24032136']
+
+```
+
+We could now plug this code into our Flutter app and feed it to our frontend by creating an API of our own which in turn talks to the HackerNews API. Pretty meta, right?
+
 ## Limitations
 
-The current API is limited in its functionality. It supports only ¼ of standard `CRUD` API functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
+The current API is limited in its functionality. It supports only ¼ of standard `CRUD` functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
 
 ## Outro
 
@@ -223,6 +233,8 @@ To quickly recap what we've learned today:
 - What APIs are
 - How Web APIs work
 - How to quickly test endpoints using `curl`
-- 
+- How to use Python to manipulate simple data
+- What HTTP Requests are (only scratched the surface on that one)
 
+You can find the code [here]()
 I have created this repo and a public Postman Docs site containing everything we went through in case you'd like to use this as a resource for further learning or to build the next Hacker News Reader App.
