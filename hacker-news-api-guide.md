@@ -237,4 +237,4 @@ To quickly recap what we've learned today:
 - What HTTP Requests are (only scratched the surface on that one)
 
 You can find the code [here]()
-I have created this repo and a public Postman Docs site containing everything we went through in case you'd like to use this as a resource for further learning or to build the next Hacker News Reader App.
+I have created this repo and a public Postman Docs site containing everything we went through in case you'd like to use this as a resource for further learning or to build the next Hacker News Reader App 
