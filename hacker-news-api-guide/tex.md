@@ -46,7 +46,7 @@ We will learn how to get the content using a
 
 API stands for `Application Programming Interface`. Just by digesting the words of the acronym we can derive, that:
 - Something communicates with something else(`Interface`)
-- The context lies in the domain of software development(`application`)
+- The context lies in the domain of software development(`Application`)
 - We write code in order to use APIs(`Programming`)
 
 An API is an abstraction layer between some part of software and some other part of software, simplifying interaction between the two.
