@@ -33,8 +33,6 @@ Content posted on Hacker News can be put into one of the following categories:
 - Comments
 - Ask Hacker News
 
-We will learn how to get the content using a
-
 # General Introduction to APIs
 - Disclaimer (You can skip this if you have worked with APIs before)
 - You talk with web APIs using HTTP clients. The windows command-line comes with curl built-in, but most popular programming languages have plug-and-play HTTP client libraries.
@@ -219,7 +217,7 @@ print("Links:", link_list)
 
 >>> Amount of results: 50
 >>> IDs: [24009177, 24030969, 24022751, 24042305, ..., 24032136]
->>> Links: ['https://news.ycombinator.com/item?id=24009177', ..., 'https://news.ycombinator.com/item?id=24032136']
+>>> Links: ['https://news.ycombinator.com/item?id=24009177', ...]
 
 ```
 

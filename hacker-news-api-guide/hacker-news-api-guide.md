@@ -21,8 +21,6 @@ Content posted on Hacker News can be put into one of the following categories:
 - Comments
 - Ask Hacker News
 
-We will learn how to get the content using a
-
 ## General Introduction to APIs
 - Disclaimer (You can skip this if you have worked with APIs before)
 - You talk with web APIs using HTTP clients. The windows command-line comes with curl built-in, but most popular programming languages have plug-and-play HTTP client libraries.
@@ -114,9 +112,9 @@ If you plan on developing, testing and documenting APIs regularly make sure to [
 
 The Hacker News API is public. This means it is free to use. Also, you don't need an API key to access it.
 
-The API is a collection of HTTP RPC-style methods using following URL building principle:
+The API is a collection of HTTP RPC-style methods using following URL building principle:  
 `https://hacker-news.firebaseio.com/v0/METHOD_FAMILY.method`
-example:
+example:  
 `https://hacker-news.firebaseio.com/v0/beststories.json`
 
 >For anyone interested in reading more about the differences between REST and RPC paradigms I recommend reading [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon and [this article](https://rapidapi.com/blog/types-of-apis/) by RapidAPI.
@@ -209,8 +207,8 @@ link_list = id_list_to_link_list(response)
 print("Links:", link_list)
 
 >>> Amount of results: 50
->>> IDs: [24009177, 24030969, 24022751, 24042305, 24035203, 24038520, 24032779, 24030654, 24036484, 24006150, 24039887, 24006697, 24005047, 24043427, 24013200, 24010152, 24016938, 24017555, 24024841, 24020899, 24049428, 24047638, 24044409, 24035866, 24011939, 24037853, 24028351, 24027487, 24004573, 24038518, 24042266, 24031885, 24029002, 24038843, 24023979, 24021025, 24030216, 24051907, 24048046, 24031290, 24036712, 24034211, 24026270, 24011505, 24027366, 24037118, 24012587, 24038223, 24007274, 24032136]
->>> Links: ['https://news.ycombinator.com/item?id=24009177', 'https://news.ycombinator.com/item?id=24030969', 'https://news.ycombinator.com/item?id=24022751', 'https://news.ycombinator.com/item?id=24042305', 'https://news.ycombinator.com/item?id=24035203', 'https://news.ycombinator.com/item?id=24038520', 'https://news.ycombinator.com/item?id=24032779', 'https://news.ycombinator.com/item?id=24030654', 'https://news.ycombinator.com/item?id=24036484', 'https://news.ycombinator.com/item?id=24006150', 'https://news.ycombinator.com/item?id=24039887', 'https://news.ycombinator.com/item?id=24006697', 'https://news.ycombinator.com/item?id=24005047', 'https://news.ycombinator.com/item?id=24043427', 'https://news.ycombinator.com/item?id=24013200', 'https://news.ycombinator.com/item?id=24010152', 'https://news.ycombinator.com/item?id=24016938', 'https://news.ycombinator.com/item?id=24017555', 'https://news.ycombinator.com/item?id=24024841', 'https://news.ycombinator.com/item?id=24020899', 'https://news.ycombinator.com/item?id=24049428', 'https://news.ycombinator.com/item?id=24047638', 'https://news.ycombinator.com/item?id=24044409', 'https://news.ycombinator.com/item?id=24035866', 'https://news.ycombinator.com/item?id=24011939', 'https://news.ycombinator.com/item?id=24037853', 'https://news.ycombinator.com/item?id=24028351', 'https://news.ycombinator.com/item?id=24027487', 'https://news.ycombinator.com/item?id=24004573', 'https://news.ycombinator.com/item?id=24038518', 'https://news.ycombinator.com/item?id=24042266', 'https://news.ycombinator.com/item?id=24031885', 'https://news.ycombinator.com/item?id=24029002', 'https://news.ycombinator.com/item?id=24038843', 'https://news.ycombinator.com/item?id=24023979', 'https://news.ycombinator.com/item?id=24021025', 'https://news.ycombinator.com/item?id=24030216', 'https://news.ycombinator.com/item?id=24051907', 'https://news.ycombinator.com/item?id=24048046', 'https://news.ycombinator.com/item?id=24031290', 'https://news.ycombinator.com/item?id=24036712', 'https://news.ycombinator.com/item?id=24034211', 'https://news.ycombinator.com/item?id=24026270', 'https://news.ycombinator.com/item?id=24011505', 'https://news.ycombinator.com/item?id=24027366', 'https://news.ycombinator.com/item?id=24037118', 'https://news.ycombinator.com/item?id=24012587', 'https://news.ycombinator.com/item?id=24038223', 'https://news.ycombinator.com/item?id=24007274', 'https://news.ycombinator.com/item?id=24032136']
+>>> IDs: [24009177, 24030969, 24022751, 24042305, ..., 24032136]
+>>> Links: ['https://news.ycombinator.com/item?id=24009177', ..., 'https://news.ycombinator.com/item?id=24032136']
 
 ```
 
