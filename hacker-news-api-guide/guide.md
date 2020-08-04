@@ -125,15 +125,14 @@ The current API does not follow the REST paradigm. Everything is an item. There 
 
 |Method|Description|Endpoint|
 |---|---|---|
-|`beststories.json`|||
-|`maxitem.json`|get item with currently largest id|https://hacker-news.firebaseio.com/v0/maxitem.json?print=pretty|
-|`topstories.json`|Get 500 top stories|https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty|
-|`newstories.json`|Get 500 latest stories (Also contains jobs)|https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty|
+|`maxitem.json`|get item with currently largest id|https://hacker-news.firebaseio.com/v0/maxitem.json|
+|`topstories.json`|Get 500 top stories|https://hacker-news.firebaseio.com/v0/topstories.json|
+|`newstories.json`|Get 500 latest stories (Also contains jobs)|https://hacker-news.firebaseio.com/v0/newstories.json|
 |`beststories.json`|Get 500 best voted stories sorted by votes in descending order|https://hacker-news.firebaseio.com/v0/beststories.json|
-|`askstories.json`|Get latest Ask Stories|https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty|
-|`showstories.json`|Get latest Show Stories|https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty|
-|`jobstories.json`|Get latest Job Stories|https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty|
-|`updates.json`|Get latest items that have been updated (including profiles)|https://hacker-news.firebaseio.com/v0/updates.json?print=pretty|
+|`askstories.json`|Get latest Ask Stories|https://hacker-news.firebaseio.com/v0/askstories.json|
+|`showstories.json`|Get latest Show Stories|https://hacker-news.firebaseio.com/v0/showstories.json|
+|`jobstories.json`|Get latest Job Stories|https://hacker-news.firebaseio.com/v0/jobstories.json|
+|`updates.json`|Get latest items that have been updated (including profiles)|https://hacker-news.firebaseio.com/v0/updates.json|
 (Feel free to open the links using your browser or `curl` and take a look look at what data you receive)
 
 Next let's familiarize ourselves with the API by querying some data.

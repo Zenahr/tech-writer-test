@@ -1,17 +1,20 @@
 ---
 title: Hacker News API Guide
-subtitle: (For Developers new to APIs)
+subtitle: For Junior Developers
 author: Zenahr Barzani
 date: \today{}
 documentclass: scrartcl
 geometry: margin=1in
+fontfamily: libertinus
+fontfamilyoptions:
+- osf
+- p
 header-includes: |
-
+ \usepackage{underscore}
 ---
 
-![](./media/1.jpg)
-
->**Disclaimer** <br> This is an unofficial guide to the HackerNews API. The author is not affiliated with HN in any official function.
+>**Disclaimer**   
+ This is an unofficial guide to the HackerNews API. The author is not affiliated with HN in any official function.
 
 # Getting Started
 
@@ -38,7 +41,8 @@ We will learn how to get the content using a
 - Explain in quick sentences what APIs generally are
 - Now a quick intro to Web APIs and the Restful paradigm
 
->**NOTE** <br> If you know what APIs are and have worked with APIs in the web context, you can skip this part.
+>**NOTE**   
+ If you know what APIs are and have worked with APIs in the web context, you can skip this part.
 
 API stands for `Application Programming Interface`. Just by digesting the words of the acronym we can derive, that:
 - Something communicates with something else(`Interface`)
@@ -117,26 +121,25 @@ If you plan on developing, testing and documenting APIs regularly make sure to [
 
 The Hacker News API is public. This means it is free to use. Also, you don't need an API key to access it.
 
-The API is a collection of HTTP RPC-style methods using following URL building principle:
+The API is a collection of HTTP RPC-style methods using following URL building principle:  
 `https://hacker-news.firebaseio.com/v0/METHOD_FAMILY.method`
-example:
+example:  
 `https://hacker-news.firebaseio.com/v0/beststories.json`
 
 >For anyone interested in reading more about the differences between REST and RPC paradigms I recommend reading [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) by Phil Sturgeon and [this article](https://rapidapi.com/blog/types-of-apis/) by RapidAPI.
 
 The current API does not follow the REST paradigm. Everything is an item. There are no semantic endpoints such as `api/stories`,  or `api/jobs` except `api/users`. The only way to only get one type of item is by using the following 
 
+
 |Method|Description|Endpoint|
 |---|---|---|
-|`beststories.json`|||
-|`maxitem.json`|get item with currently largest id|https://hacker-news.firebaseio.com/v0/maxitem.json?print=pretty|
-|`topstories.json`|Get 500 top stories|https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty|
-|`newstories.json`|Get 500 latest stories (Also contains jobs)|https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty|
+|`topstories.json`|Get 500 top stories|https://hacker-news.firebaseio.com/v0/topstories.json|
+|`newstories.json`|Get 500 latest stories (Also contains jobs)|https://hacker-news.firebaseio.com/v0/newstories.json|
 |`beststories.json`|Get 500 best voted stories sorted by votes in descending order|https://hacker-news.firebaseio.com/v0/beststories.json|
-|`askstories.json`|Get latest Ask Stories|https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty|
-|`showstories.json`|Get latest Show Stories|https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty|
-|`jobstories.json`|Get latest Job Stories|https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty|
-|`updates.json`|Get latest items that have been updated (including profiles)|https://hacker-news.firebaseio.com/v0/updates.json?print=pretty|
+|`askstories.json`|Get latest Ask Stories|https://hacker-news.firebaseio.com/v0/askstories.json|
+|`showstories.json`|Get latest Show Stories|https://hacker-news.firebaseio.com/v0/showstories.json|
+|`jobstories.json`|Get latest Job Stories|https://hacker-news.firebaseio.com/v0/jobstories.json|
+|`updates.json`|Get latest items that have been updated (including profiles)|https://hacker-news.firebaseio.com/v0/updates.json|
 (Feel free to open the links using your browser or `curl` and take a look look at what data you receive)
 
 Next let's familiarize ourselves with the API by querying some data.
@@ -147,7 +150,8 @@ Imagine writing a mobile App (in Flutter, React Native or whatever you're comfor
 
 We will work with Python because it's easy to prototype in and it features some neat functions right out-of-the-box for data manipulation.
 
->**ATTENTION** <br> Make sure to have the [requests](https://pypi.org/project/requests/) library installed to follow along.
+>**ATTENTION**   
+ Make sure to have the [requests](https://pypi.org/project/requests/) library installed to follow along.
 
 Let's make a simple `GET` request via the requests library to the `besttories.json` method
 
@@ -193,7 +197,8 @@ print("Links:", link_list)
 
 The complete and abbreviated code for this looks like this:
 
->**NOTE** <br> I have added more descriptive print functions.
+>**NOTE**   
+ I have added more descriptive print functions.
 
 ```python
 import requests
