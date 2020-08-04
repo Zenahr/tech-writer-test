@@ -104,7 +104,7 @@ If you'd like to very quickly test something out you could always use [curl](htt
 
 open your terminal(Linux) or command-line(Windows) and enter the following line of code:
 
-`https://api.github.com/users/Zenahr/repos`
+`curl https://api.github.com/users/Zenahr/repos`
 
 Yes, it's the same HTTP request we sent before, but this time we used our terminal/command-line to receive the payload. Payload is the actual content of the HTTP response without accounting for metadata and other things that go along with an HTTP response. In other words: If everything is working fine you usually only care and work with the payload of HTTP responses.
 
