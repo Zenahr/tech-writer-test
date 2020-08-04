@@ -2,7 +2,11 @@
 title: Hacker News API Guide
 subtitle: (For Developers new to APIs)
 author: Zenahr Barzani
-date: /today{}
+date: \today{}
+documentclass: scrartcl
+geometry: margin=1in
+header-includes: |
+
 ---
 # Hacker News API Guide
 
@@ -50,20 +54,14 @@ One common type of API are libraries. You use libraries to abstract complexity a
 
 ```python
 
-#import library
 import speech_recognition as sr
 
-# Initialize recognizer class (for recognizing the speech)
 r = sr.Recognizer()
-
-# Reading Audio file as source
-# listening the audio file and store in audio_text variable
 
 with sr.AudioFile('I-dont-know.wav') as source:
     
     audio_text = r.listen(source)
     
-# recoginize_() method will throw a request error if the API is unreachable, hence using exception handling
     try:
         
         # using google speech recognition
@@ -216,8 +214,8 @@ link_list = id_list_to_link_list(response)
 print("Links:", link_list)
 
 >>> Amount of results: 50
->>> IDs: [24009177, 24030969, 24022751, 24042305, 24035203, 24038520, 24032779, 24030654, 24036484, 24006150, 24039887, 24006697, 24005047, 24043427, 24013200, 24010152, 24016938, 24017555, 24024841, 24020899, 24049428, 24047638, 24044409, 24035866, 24011939, 24037853, 24028351, 24027487, 24004573, 24038518, 24042266, 24031885, 24029002, 24038843, 24023979, 24021025, 24030216, 24051907, 24048046, 24031290, 24036712, 24034211, 24026270, 24011505, 24027366, 24037118, 24012587, 24038223, 24007274, 24032136]
->>> Links: ['https://news.ycombinator.com/item?id=24009177', 'https://news.ycombinator.com/item?id=24030969', 'https://news.ycombinator.com/item?id=24022751', 'https://news.ycombinator.com/item?id=24042305', 'https://news.ycombinator.com/item?id=24035203', 'https://news.ycombinator.com/item?id=24038520', 'https://news.ycombinator.com/item?id=24032779', 'https://news.ycombinator.com/item?id=24030654', 'https://news.ycombinator.com/item?id=24036484', 'https://news.ycombinator.com/item?id=24006150', 'https://news.ycombinator.com/item?id=24039887', 'https://news.ycombinator.com/item?id=24006697', 'https://news.ycombinator.com/item?id=24005047', 'https://news.ycombinator.com/item?id=24043427', 'https://news.ycombinator.com/item?id=24013200', 'https://news.ycombinator.com/item?id=24010152', 'https://news.ycombinator.com/item?id=24016938', 'https://news.ycombinator.com/item?id=24017555', 'https://news.ycombinator.com/item?id=24024841', 'https://news.ycombinator.com/item?id=24020899', 'https://news.ycombinator.com/item?id=24049428', 'https://news.ycombinator.com/item?id=24047638', 'https://news.ycombinator.com/item?id=24044409', 'https://news.ycombinator.com/item?id=24035866', 'https://news.ycombinator.com/item?id=24011939', 'https://news.ycombinator.com/item?id=24037853', 'https://news.ycombinator.com/item?id=24028351', 'https://news.ycombinator.com/item?id=24027487', 'https://news.ycombinator.com/item?id=24004573', 'https://news.ycombinator.com/item?id=24038518', 'https://news.ycombinator.com/item?id=24042266', 'https://news.ycombinator.com/item?id=24031885', 'https://news.ycombinator.com/item?id=24029002', 'https://news.ycombinator.com/item?id=24038843', 'https://news.ycombinator.com/item?id=24023979', 'https://news.ycombinator.com/item?id=24021025', 'https://news.ycombinator.com/item?id=24030216', 'https://news.ycombinator.com/item?id=24051907', 'https://news.ycombinator.com/item?id=24048046', 'https://news.ycombinator.com/item?id=24031290', 'https://news.ycombinator.com/item?id=24036712', 'https://news.ycombinator.com/item?id=24034211', 'https://news.ycombinator.com/item?id=24026270', 'https://news.ycombinator.com/item?id=24011505', 'https://news.ycombinator.com/item?id=24027366', 'https://news.ycombinator.com/item?id=24037118', 'https://news.ycombinator.com/item?id=24012587', 'https://news.ycombinator.com/item?id=24038223', 'https://news.ycombinator.com/item?id=24007274', 'https://news.ycombinator.com/item?id=24032136']
+>>> IDs: [24009177, 24030969, 24022751, 24042305, ..., 24032136]
+>>> Links: ['https://news.ycombinator.com/item?id=24009177', ..., 'https://news.ycombinator.com/item?id=24032136']
 
 ```
 
