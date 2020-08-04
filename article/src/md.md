@@ -154,20 +154,75 @@ Let's familiarize ourselves with the API by querying some data.
 
 Imagine writing a mobile App (in Flutter, React Native or whatever you're comfortable with) and imagine you've got a section which should list the 50 most upvoted stories on HN.
 
-We will work with Python because of it's easy to prototype in and it features some neat functions right out-of-the-box.
+We will work with Python because it's easy to prototype in and it features some neat functions right out-of-the-box for data manipulation.
 
-### Example Code
+>Make sure to have the [requests](https://pypi.org/project/requests/) library installed to follow along. The code will be posted on GitHub.
+
+Let's make a simple `GET` request via the requests library to the `besttories.json` method
 
 ```python
+import requests
 
+url = "https://hacker-news.firebaseio.com/v0/beststories.json"
+
+response = requests.get(url).json()
 ```
 
-## Integration example (webapp architecture and use-case)
+The `https://hacker-news.firebaseio.com/v0/beststories.json` returns the 200 most voted stories in descending order, meaning the first result is the story with the highest number of votes.
+
+Let's verify that by printing out the length of the result (the response we get is a list of IDs)
+
+```python
+print(len(response))
+
+>>> 200
+```
+
+Since we only care about the first 50 entries in this list, we can strip the list like so
+
+```python
+response = response[:50]
+print(len(response))
+
+>>> 50
+```
+
+The complete and abbreviated code for this looks like this:
+
+>**NOTE** <br> I have added more descriptive print functions.
+
+```python
+import requests
+url = "https://hacker-news.firebaseio.com/v0/beststories.json"
+response = requests.get(url).json()[:50]
+print("Amount of results:", len(response))
+print("IDs:", response)
+```
+
+We could write another function which would then create direct links to the different posts like so
+
+```python
+def id_to_link(id):
+    return "https://news.ycombinator.com/item?id=" + str(id)
+
+def id_list_to_link_list(id_list):
+    return [id_to_link(id) for id in id_list]
+
+link_list = id_list_to_link_list(response)
+print("Links:", link_list)
+```
 
 ## Limitations
 
 The current API is limited in its functionality. It supports only ¼ of standard `CRUD` API functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
 
 ## Outro
+
+To quickly recap what we've learned today:
+
+- What APIs are
+- How Web APIs work
+- How to quickly test endpoints using `curl`
+- 
 
 I have created this repo and a public Postman Docs site containing everything we went through in case you'd like to use this as a resource for further learning or to build the next Hacker News Reader App.
