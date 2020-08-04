@@ -8,21 +8,20 @@ geometry: margin=1in
 header-includes: |
 
 ---
-# Hacker News API Guide
 
 ![](./media/1.jpg)
 
 >**Disclaimer** <br> This is an unofficial guide to the HackerNews API. The author is not affiliated with HN in any official function.
 
-## Getting Started
+# Getting Started
 
 This tutorial is meant as a quick step-by-step guide to get started using the [HN API](https://github.com/HackerNews/API) whilst also teaching some fundamental things about APIs and introducing useful tools for testing APIs. This tutorial is mainly geared towards junior developers.
 
-## Hacker News
+# Hacker News
 
 [Hacker News](https://news.ycombinator.com/) is a social news website focusing on computer science and entrepreneurship. It follows the "anything that gratifies one's intellectual curiosity" slogan. If you haven't been on Hacker News before, feel free to pause this guide and stop by to get a feel of what we're going to work with. (Source: [Wiki](https://en.wikipedia.org/wiki/Hacker_News))
 
-### Types of Content
+## Types of Content
 
 Content posted on Hacker News can be put into one of the following categories:
 
@@ -33,7 +32,7 @@ Content posted on Hacker News can be put into one of the following categories:
 
 We will learn how to get the content using a
 
-## General Introduction to APIs
+# General Introduction to APIs
 - Disclaimer (You can skip this if you have worked with APIs before)
 - You talk with web APIs using HTTP clients. The windows command-line comes with curl built-in, but most popular programming languages have plug-and-play HTTP client libraries.
 - Explain in quick sentences what APIs generally are
@@ -48,7 +47,7 @@ API stands for `Application Programming Interface`. Just by digesting the words 
 
 An API is an abstraction layer between some part of software and some other part of software, simplifying interaction between the two.
 
-### Minimal Example
+## Minimal Example
 
 One common type of API are libraries. You use libraries to abstract complexity away from complicated things, for example `dates`, or handling `User I/O` or more high-level things such as Data Science ([pandas](https://pandas.pydata.org/)), utility libraries([libavutil](https://ffmpeg.org/libavutil.html)) or even a library for [speech recognition](https://pypi.org/project/SpeechRecognition/).
 
@@ -76,7 +75,7 @@ with sr.AudioFile('I-dont-know.wav') as source:
 
 The example above is written in Python but the principle of abstraction applies to any library. So, libraries are one kind of API, what else is out there? Glad you asked...
 
-### Web Based APIs
+## Web Based APIs
 
 ![](./media/2.png)
 [Source](https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f)
@@ -85,7 +84,7 @@ Since the world wide web has started to conquer the world since its modest begin
 
 Web APIs are responsible for transferring data from the server to the client. Several protocols have been developed for that kind of communication today known as [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (Hypertext Transfer Protocol).
 
-### A Short Experiment
+## A Short Experiment
 
 Visit following URL with your web browser:
 
@@ -96,11 +95,11 @@ If you're using Firefox as your web browser, it should look something like this:
 ![](./media/3.png)
 The web browser has hit an API endpoint and represents the structured data (JSON) for us.
 
-#### What just happened?
+## What just happened?
 
 We made an _HTTP request_ to the _repos_ endpoint of the _GitHub API_ and got a bunch of JSON objects back as a _response_. JSON is one common way of transportation via the web. JSON stands for `Javascript Object Notation`. I won't go through the details of it here The only thing we need to be aware of is that the data we get back is structured data and the container used to structure the data is JSON. Read more about JSON and its intricacies [here](https://www.json.org/json-en.html). It's worth it if you're planning on working in web-development regardless of whether you specialise in front-end or back-end development.
 
-### Choosing a HTTP Client
+## Choosing a HTTP Client
 
 We need a meaningful way of representing data received from API endpoints. This is where HTTP clients come into play. Remember, APIs use the HTTP protocol for transportation.
 
@@ -114,7 +113,7 @@ Yes, it's the same HTTP request we sent before, but this time we used our termin
 
 If you plan on developing, testing and documenting APIs regularly make sure to [check out Postman](https://www.postman.com/). It's free and open-source. We will be using Python and the `requests` library in this tutorial though.
 
-## Exploring The API
+# Exploring The API
 
 The Hacker News API is public. This means it is free to use. Also, you don't need an API key to access it.
 
@@ -142,7 +141,7 @@ The current API does not follow the REST paradigm. Everything is an item. There 
 
 Next let's familiarize ourselves with the API by querying some data.
 
-### Querying Data
+## Querying Data
 
 Imagine writing a mobile App (in Flutter, React Native or whatever you're comfortable with) and imagine you've got a section which should list the 50 most upvoted stories on HN.
 
@@ -221,11 +220,11 @@ print("Links:", link_list)
 
 We could now plug this code into our Flutter app and feed it to our frontend by creating an API of our own which in turn talks to the HackerNews API. Pretty meta, right?
 
-## HackerNews API Limitations
+# HackerNews API Limitations
 
 The current API is limited in its functionality. It supports only ¼ of standard `CRUD` functionality. This means one can't Create(`C`), Update(`U`) or Delete(`C`) but only Read(`R`) database entries. It also does not support [pagination](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/).
 
-## Recap
+# Recap
 
 Let's recap what we've learned today:
 
