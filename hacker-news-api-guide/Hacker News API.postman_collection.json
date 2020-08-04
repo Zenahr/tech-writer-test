@@ -1,0 +1,177 @@
+{
+    "info": {
+        "website": "https://documenter.getpostman.com/view/9767562/T1LFmVWJ?version=latest",
+        "_postman_id": "0b5c1da3-1260-4433-a5af-cacafcc1f6a3",
+        "name": "Hacker News API",
+        "description": "Collection of common API requests to the HN backend",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [{
+            "name": "Stories",
+            "item": [{
+                    "name": "Get Best Stories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://hacker-news.firebaseio.com/v0/beststories.json",
+                            "protocol": "https",
+                            "host": [
+                                "hacker-news",
+                                "firebaseio",
+                                "com"
+                            ],
+                            "path": [
+                                "v0",
+                                "beststories.json"
+                            ],
+                            "query": [{
+                                "key": "print",
+                                "value": "pretty",
+                                "description": "receive json with readable formatting",
+                                "disabled": true
+                            }]
+                        },
+                        "description": "Get 500 best voted stories sorted by votes in descending order."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Top Stories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty",
+                            "protocol": "https",
+                            "host": [
+                                "hacker-news",
+                                "firebaseio",
+                                "com"
+                            ],
+                            "path": [
+                                "v0",
+                                "topstories.json"
+                            ],
+                            "query": [{
+                                "key": "print",
+                                "value": "pretty"
+                            }]
+                        },
+                        "description": "Get 500 top stories"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get New Stories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty",
+                            "protocol": "https",
+                            "host": [
+                                "hacker-news",
+                                "firebaseio",
+                                "com"
+                            ],
+                            "path": [
+                                "v0",
+                                "newstories.json"
+                            ],
+                            "query": [{
+                                "key": "print",
+                                "value": "pretty"
+                            }]
+                        },
+                        "description": "Get 500 latest stories. Also contains jobs."
+                    },
+                    "response": []
+                }
+            ],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Other",
+            "item": [{
+                    "name": "Get Latest Ask Stories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty",
+                            "protocol": "https",
+                            "host": [
+                                "hacker-news",
+                                "firebaseio",
+                                "com"
+                            ],
+                            "path": [
+                                "v0",
+                                "askstories.json"
+                            ],
+                            "query": [{
+                                "key": "print",
+                                "value": "pretty"
+                            }]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Latest Show Stories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty",
+                            "protocol": "https",
+                            "host": [
+                                "hacker-news",
+                                "firebaseio",
+                                "com"
+                            ],
+                            "path": [
+                                "v0",
+                                "showstories.json"
+                            ],
+                            "query": [{
+                                "key": "print",
+                                "value": "pretty"
+                            }]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Latest Job Stories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty",
+                            "protocol": "https",
+                            "host": [
+                                "hacker-news",
+                                "firebaseio",
+                                "com"
+                            ],
+                            "path": [
+                                "v0",
+                                "jobstories.json"
+                            ],
+                            "query": [{
+                                "key": "print",
+                                "value": "pretty"
+                            }]
+                        }
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Endpoints for querying Ask, Job and Show stories",
+            "protocolProfileBehavior": {}
+        }
+    ],
+    "protocolProfileBehavior": {}
+}
