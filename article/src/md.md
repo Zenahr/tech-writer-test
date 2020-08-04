@@ -148,6 +148,20 @@ The current API does not follow the Restful paradigm. Everything is an item. The
 https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty
 - explain API parameters (beststories is a an object and we use . notation here to access the objects json property)
 
+Let's familiarize ourselves with the API by querying some data.
+
+### Querying Data
+
+Imagine writing a mobile App (in Flutter, React Native or whatever you're comfortable with) and imagine you've got a section which should list the 50 most upvoted stories on HN.
+
+We will work with Python because of it's easy to prototype in and it features some neat functions right out-of-the-box.
+
+### Example Code
+
+```python
+
+```
+
 ## Integration example (webapp architecture and use-case)
 
 ## Limitations
